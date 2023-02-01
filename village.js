@@ -9,9 +9,9 @@ const village = data.locations[villagePicked];
 
 villageName.innerText += village.name;
 
-monster1.innerHTML = `<div>${village.monsters[0].name}</div><div>${village.monsters[0].gold}</div><button  class="choose-monster-button">Choose</button>`;
-monster2.innerHTML = `<div>${village.monsters[1].name}</div><div>${village.monsters[1].gold}</div><button class="choose-monster-button">Choose</button>`;
-monster3.innerHTML = `<div>${village.monsters[2].name}</div><div>${village.monsters[2].gold}</div><button class="choose-monster-button">Choose</button>`;
+monster1.innerHTML = `<div>${village.monsters[0].name}</div><div>${village.monsters[0].gold}</div><button  class="choose-monster-button glow">Choose</button>`;
+monster2.innerHTML = `<div>${village.monsters[1].name}</div><div>${village.monsters[1].gold}</div><button class="choose-monster-button glow">Choose</button>`;
+monster3.innerHTML = `<div>${village.monsters[2].name}</div><div>${village.monsters[2].gold}</div><button class="choose-monster-button glow">Choose</button>`;
 
 const chooseMonsterButtons = document.querySelectorAll(".choose-monster-button");
 
