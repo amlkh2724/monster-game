@@ -1,5 +1,6 @@
 function startFight(player , monster){
     console.log("fight starts ... ");
+    updateScreenStats(player , monster);
     fight(player  , monster);
 }
 
