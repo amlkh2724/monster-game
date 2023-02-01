@@ -1,4 +1,5 @@
 function startFight(player , monster){
+    console.log("fight starts ... ");
     fight(player  , monster);
 }
 
@@ -8,14 +9,17 @@ async function fight(player , monster){
     while(true){
         if(player.health <= 0){
             //player lose
+            console.log("Player Lost");
             return;
         }
         else if(monster.health <= 0){
             // monster is dead player win
+            console.log("Monster is dead");
             return;
         }
         if(isPlayerTurn){
             // wait for instructions from the UI (attack / run)
+            console.log("Waiting for users action");
             let decision = await new Promise(resolve => {
                 attackButton.addEventListener("click" , () => {
                     decision = 0;
@@ -30,10 +34,12 @@ async function fight(player , monster){
 
             if(decision === 1){
                 //player end the fight and run
+                console.log("Player ran away");
                 return;
             }
             else if(decision === 0){
                 //player attack the monster
+                console.log("player attacked");
                 attack(player , monster);
                 isPlayerTurn = !isPlayerTurn;
                 updateScreenStats(player , monster);
@@ -42,6 +48,7 @@ async function fight(player , monster){
         }
         else {
             //mosnter attack 
+            console.log("monster attacked");
             attack(monster , player);
             isPlayerTurn = !isPlayerTurn;
             updateScreenStats(player , monster);
@@ -62,6 +69,8 @@ function attack(attacker , defender) {
         damage = defender.health;
     }
     defender.health -= damage;
+    console.log(`damage done was ${damage}`);
+    console.log(`health of ${defender.name} is down to ${defender.health}`);
 }
 
 function doesPlayerStart(player , monster){
