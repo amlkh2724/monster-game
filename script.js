@@ -12,6 +12,14 @@ function startFight(player, monster) {
     fight(player, monster);
 }
 
+const toVillages = () => {
+    location.href = './village.html';
+}
+
+const toMainMenu = () => {
+    location.href = './intro.html';
+}
+
 async function fight(player, monster) {
     // here is the fight prosecdure 
     let isPlayerTurn = doesPlayerStart(player, monster);
@@ -20,13 +28,19 @@ async function fight(player, monster) {
             //player lose
             console.log("Player Lost");
             updateData();
-            return;
+            return toMainMenu();
         }
         else if (monster.health <= 0) {
             // monster is dead player win
             console.log("Monster is dead");
             updateData();
-            return;
+            if (localStorage.getItem('winner')) {
+                localStorage.setItem("winner", `${localStorage.getItem('winner')},${monster.name}`);
+            }else{
+                localStorage.setItem("winner",`${monster.name}`);
+            }
+            
+            return toVillages();
         }
         if (isPlayerTurn) {
             // wait for instructions from the UI (attack / run)
@@ -48,7 +62,7 @@ async function fight(player, monster) {
                 //player end the fight and run
                 console.log("Player ran away");
                 updateData();
-                return;
+                return toVillages();
             }
             else if (decision === 0) {
                 //player attack the monster
