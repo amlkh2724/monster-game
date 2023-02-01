@@ -1,0 +1,20 @@
+rgp-game-data = 
+{
+    'player' : {
+        name
+        strength 
+        ...
+    }
+    locations : [
+        {
+            name : 
+            monsters : [{
+                name:
+                ...
+            }]
+        }
+    ]
+}
+
+const data = JSON.parse(localStorage.getItem("rgp-game-data"));
+data.locations
