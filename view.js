@@ -7,6 +7,6 @@ const playerHealth = document.getElementById("player-health-label");
 
 
 function updateScreenStats(player , monster) {
-    monsterHealth.innerText = monster.health;
-    playerHealth.innerText = player.health;
+    monsterHealth.innerText = monster.health + " hp";
+    playerHealth.innerText = player.health + " hp";
 }
