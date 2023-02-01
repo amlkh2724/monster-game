@@ -1,3 +1,11 @@
+const data =JSON.parse(localStorage.getItem("rpg-game-data"));
+const villagePicked = localStorage.getItem("village-picked");
+const monsterIndex = localStorage.getItem("monsterName");
+// get the chosen monster
+const monster = data.locations[villagePicked].monsters[monsterIndex];
+//get the data of the player
+const player = data.player;
+
 function startFight(player, monster) {
     console.log("fight starts ... ");
     updateScreenStats(player, monster);
@@ -11,11 +19,13 @@ async function fight(player, monster) {
         if (player.health <= 0) {
             //player lose
             console.log("Player Lost");
+            updateData();
             return;
         }
         else if (monster.health <= 0) {
             // monster is dead player win
             console.log("Monster is dead");
+            updateData();
             return;
         }
         if (isPlayerTurn) {
@@ -37,6 +47,7 @@ async function fight(player, monster) {
             if (decision === 1) {
                 //player end the fight and run
                 console.log("Player ran away");
+                updateData();
                 return;
             }
             else if (decision === 0) {
@@ -92,11 +103,12 @@ function doesPlayerStart(player, monster) {
     return doesPlayerStart(player, monster);
 }
 
-// get the chosen monster
-const data =JSON.parse(localStorage.getItem("rpg-game-data"));
-const villagePicked = localStorage.getItem("village-picked");
-const monsterIndex = localStorage.getItem("monsterName");
-const monster = data.locations[villagePicked].monsters[monsterIndex];
+function updateData(){
+    data.locations[villagePicked].monsters[monsterIndex] = monster;
+    data.player = player;
+    localStorage.setItem("rpg-game-data" , JSON.stringify(data));
+}
+
 console.log(monster);
 //for now will start the fight automaticly 
 startFight(player, monster);
