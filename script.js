@@ -30,13 +30,13 @@ async function fight(player , monster){
 
             if(decision === 1){
                 //player end the fight and run
-                player.fightingMonsterId = -1;
                 return;
             }
             else if(decision === 0){
                 //player attack the monster
                 attack(player , monster);
                 isPlayerTurn = !isPlayerTurn;
+                updateScreenStats(player , monster);
                 continue;
             }
         }
@@ -44,6 +44,7 @@ async function fight(player , monster){
             //mosnter attack 
             attack(monster , player);
             isPlayerTurn = !isPlayerTurn;
+            updateScreenStats(player , monster);
             continue;
         }
     }
@@ -75,3 +76,6 @@ function doesPlayerStart(player , monster){
     // if it equals do it again 
     return doesPlayerStart(player , monster);
 }
+
+//for now will start the fight automaticly 
+startFight(player , monster1);

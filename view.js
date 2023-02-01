@@ -1,8 +1,12 @@
 const attackButton = document.getElementById("attack-button");
 const runButton = document.getElementById("run-button");
 const startFightButton = document.getElementById("start-fight-button");
+const monsterHealth = document.getElementById("monster-health-label");
+const playerHealth = document.getElementById("player-health-label");
 
-startFightButton.addEventListener("click" , ()=> {
-    // for now there is only one player and one monster
-    startFight(player , monster1);
-})
+
+
+function updateScreenStats(player , monster) {
+    monsterHealth.innerText = monster.health;
+    playerHealth.innerText = player.health;
+}
