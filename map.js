@@ -4,22 +4,34 @@ const village3 = document.querySelector('.village3');
 const village4 = document.querySelector('.village4');
 const village5 = document.querySelector('.village5');
 
+const data = localStorage.getItem("rgp-game-data")
+village1.innerHTML = data.location[0]
+village1.innerHTML = data.location[1]
+village1.innerHTML = data.location[2]
+village1.innerHTML = data.location[3]
+village1.innerHTML = data.location[4]
+
 village1.addEventListener('click', (e) => {
+  localStorage.setItem ("village-picked",data.location[0]) 
   location.href = './village.html';
 });
 village2.addEventListener('click', (e) => {
+  localStorage.setItem ("village-picked",data.location[1])
   location.href = './village.html';
 
 });
 village3.addEventListener('click', (e) => {
+  localStorage.setItem ("village-picked",data.location[2])
   location.href = './village.html';
 
 });
 village4.addEventListener('click', (e) => {
+  localStorage.setItem ("village-picked",data.location[3])
   location.href = './village.html';
 
 });
 village5.addEventListener('click', (e) => {
+  localStorage.setItem ("village-picked",data.location[4])
   location.href = './village.html';
 
 });
