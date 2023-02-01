@@ -20,18 +20,18 @@ monster3.innerHTML = `${village.monsters[2].name},${village.monsters[2].gold}`
 // monster5.innerHTML = `monster:${village.monsters[4].name},gold:${village.monsters[4].gold}`
 
 monster1.addEventListener("click", function () {
-    localStorage.setItem("monsterName", village.monsters[0])
+    localStorage.setItem("monsterName", 0)
     location.href = './index.html';
 })
 
 monster2.addEventListener("click", function () {
-    localStorage.setItem("monsterName", village.monsters[1])
+    localStorage.setItem("monsterName", 1)
 
     location.href = './index.html';
 })
 
 monster3.addEventListener("click", function () {
-    localStorage.setItem("monsterName", village.monsters[2])
+    localStorage.setItem("monsterName", 2)
 
     location.href = './index.html';
 })
