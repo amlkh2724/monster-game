@@ -4,12 +4,12 @@ const village3 = document.querySelector('.village3');
 const village4 = document.querySelector('.village4');
 const village5 = document.querySelector('.village5');
 
-const data = localStorage.getItem("rgp-game-data")
-village1.innerHTML = data.location[0]
-village1.innerHTML = data.location[1]
-village1.innerHTML = data.location[2]
-village1.innerHTML = data.location[3]
-village1.innerHTML = data.location[4]
+const data = localStorage.getItem("rpg-game-data")
+village1.innerHTML = data.location[0].name
+village1.innerHTML = data.location[1].name
+village1.innerHTML = data.location[2].name
+village1.innerHTML = data.location[3].name
+village1.innerHTML = data.location[4].name
 
 village1.addEventListener('click', (e) => {
   localStorage.setItem ("village-picked",data.location[0]) 
