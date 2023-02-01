@@ -1,3 +1,10 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
 .flex {
   width: 100vw;
   height: 100vh;
@@ -6,6 +13,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #5377AA;
+
 }
 
 .village-name {
