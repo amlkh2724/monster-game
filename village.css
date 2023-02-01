@@ -21,7 +21,7 @@
   width: 100%;
   height: 20%;
   background-color: #5377AA;
-  color: white;
+  color: #64C2B5;
   font-size: 5rem;
   text-align: center;
 }
@@ -49,8 +49,9 @@
 .monsters5 {
   width: 40vmin;
   height: 40vmin;
-  background-color: #333;
+  background-color: #5377AA;
   text-align: center;
+  color: #64C2B5;
 
 }
 .choose-monster-button{
