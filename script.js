@@ -21,7 +21,8 @@ async function fight(player , monster){
         if(isPlayerTurn){
             // wait for instructions from the UI (attack / run)
             console.log("Waiting for users action");
-            let decision = await new Promise(resolve => {
+            let decision;
+            await new Promise(resolve => {
                 attackButton.addEventListener("click" , () => {
                     decision = 0;
                     resolve();
@@ -60,9 +61,13 @@ async function fight(player , monster){
 
 function attack(attacker , defender) {
     let damage = Math.floor(Math.random()*20 + 1 );
+    console.log(`random number to attak is ${damage}`);
     damage += attacker.strength;
+    console.log(`after adding strength ${damage}`);
     damage *= attacker.level;
+    console.log(`multiplyed by level ${damage}`);
     damage -= defender.defense;
+    console.log(`after sybstracting defense ${damage}`);
     if(damage < 0){
         damage = 0;
     }
