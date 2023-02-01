@@ -41,7 +41,15 @@
 .chooseMonster {
   background-color: red;
 }
-
+.monsters1 {
+  background: url(./assest/monster1.png) no-repeat center center/contain;
+}
+.monsters2 {
+  background: url(./assest/monster2.png) no-repeat center center/contain;
+}
+.monsters3 {
+  background: url(./assest/monster3.png) no-repeat center center/contain;
+}
 .monsters1,
 .monsters2,
 .monsters3,

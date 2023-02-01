@@ -23,10 +23,10 @@ body {
 
 }
 
-.monsterTurn {
+/* .monsterTurn {
     background: url(/assest/head_char2.png)no-repeat center center/cover;
     height: 80vh;
-}
+} */
 
 .optionsForBoth {
     display: flex;
@@ -42,7 +42,7 @@ body {
 }
 
 .playerTurn {
-    background: url(/assest/8ebb021259d8d541aeec28347dd47025.png) no-repeat center center/cover;
+    background: url(/assest/8ebb021259d8d541aeec28347dd47025.png) no-repeat center center/contain;
     margin-top: 2rem;
     height: 80vh;
 
@@ -63,4 +63,19 @@ body {
     gap: 10rem;
     display: flex;
     margin-top: 0.4rem;
+}
+
+.monster1 {
+    background: url(/assest/monster1.png) no-repeat center center/contain;
+    height: 80vh;
+}
+
+.monster2 {
+    background: url(/assest/monster2.png) no-repeat center center/contain;
+    height: 80vh;
+}
+
+.monster3 {
+    background: url(/assest/monster3.png) no-repeat center center/contain;
+    height: 80vh;
 }
