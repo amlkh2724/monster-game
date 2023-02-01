@@ -92,5 +92,11 @@ function doesPlayerStart(player, monster) {
     return doesPlayerStart(player, monster);
 }
 
+// get the chosen monster
+const data =JSON.parse(localStorage.getItem("rpg-game-data"));
+const villagePicked = localStorage.getItem("village-picked");
+const monsterIndex = localStorage.getItem("monsterName");
+const monster = data.locations[villagePicked].monsters[monsterIndex];
+console.log(monster);
 //for now will start the fight automaticly 
-startFight(player, monster1);
+startFight(player, monster);

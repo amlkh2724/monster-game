@@ -23,7 +23,7 @@ for (let i = 0; i < chooseMonsterButtons.length; i++) {
 
 function handleMonsterClick(index) {
     console.log("Monster chosen:", village.monsters[index].name);
-    localStorage.setItem("monsterName", JSON.stringify(village.monsters[index]));
+    localStorage.setItem("monsterName", index);
     location.href = './index.html';
 }
 
