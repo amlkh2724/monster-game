@@ -13,6 +13,8 @@ function startFight(player, monster) {
 }
 
 async function fight(player, monster) {
+    villageButton.style.display = "none";
+    newButton.style.display = "none";
     // here is the fight prosecdure 
     let isPlayerTurn = doesPlayerStart(player, monster);
     while (true) {
@@ -20,12 +22,16 @@ async function fight(player, monster) {
             //player lose
             console.log("Player Lost");
             updateData();
+            animateInfo(playerDamage , "PLAYER DIED" , true);
+            newButton.style.display = "inline";
             return;
         }
         else if (monster.health <= 0) {
             // monster is dead player win
             console.log("Monster is dead");
             updateData();
+            animateInfo(monsterDamage , "MONSTER DIED" , true);
+            villageButton.style.display = "inline";
             return;
         }
         if (isPlayerTurn) {
@@ -48,12 +54,16 @@ async function fight(player, monster) {
                 //player end the fight and run
                 console.log("Player ran away");
                 updateData();
+                animateInfo(playerDamage , "PLAYER RAN AWAY" , true);
+                villageButton.style.display = "inline";
                 return;
             }
             else if (decision === 0) {
                 //player attack the monster
                 console.log("player attacked");
-                attack(player, monster);
+                const damage = attack(player, monster);
+                // the player was damaged x 
+                animateInfo(monsterDamage , damage);
                 isPlayerTurn = !isPlayerTurn;
                 updateScreenStats(player, monster);
                 continue;
@@ -61,8 +71,12 @@ async function fight(player, monster) {
         }
         else {
             //mosnter attack 
+            //wait 1500 ms then attack 
+            await new Promise(resolve => setTimeout(resolve, 1500));
             console.log("monster attacked");
-            attack(monster, player);
+            const damage = attack(monster, player);
+            animateInfo(playerDamage , damage);
+            // display that with animation
             isPlayerTurn = !isPlayerTurn;
             updateScreenStats(player, monster);
             continue;
@@ -88,6 +102,7 @@ function attack(attacker, defender) {
     defender.health -= damage;
     console.log(`damage done was ${damage}`);
     console.log(`health of ${defender.name} is down to ${defender.health}`);
+    return damage;
 }
 
 function doesPlayerStart(player, monster) {
@@ -108,6 +123,32 @@ function updateData(){
     data.player = player;
     localStorage.setItem("rpg-game-data" , JSON.stringify(data));
 }
+
+function animateInfo(uiElement , messege , keep){
+    uiElement.innerText = messege;
+    uiElement.classList.add("animate")
+
+    debugger
+    if(keep === undefined){
+        setInterval(()=>{
+            uiElement.classList.remove("animate");
+            uiElement.innerText = "";
+        } , 2000);
+    }
+    else{
+        setInterval(()=>{
+            uiElement.classList.remove("animate");
+        } , 2000);
+    }
+}
+
+newButton.addEventListener("click" , ()=>{
+    location.href = './intro.html';
+});
+
+villageButton.addEventListener("click" , ()=>{
+    location.href = './village.html';
+})
 
 console.log(monster);
 //for now will start the fight automaticly 
