@@ -18,6 +18,7 @@ async function fight(player, monster) {
     // here is the fight prosecdure 
     let isPlayerTurn = doesPlayerStart(player, monster);
     while (true) {
+        await new Promise(resolve => setTimeout(resolve, 1500));
         if (player.health <= 0) {
             //player lose
             console.log("Player Lost");
@@ -29,6 +30,13 @@ async function fight(player, monster) {
         else if (monster.health <= 0) {
             // monster is dead player win
             console.log("Monster is dead");
+            const gold = monster.gold;
+            monster.gold = 0;
+            const xp = monster.xp;
+            monster.xp = 0;
+            player.xp += xp;
+            player.gold += gold;
+            console.log(player);
             updateData();
             animateInfo(monsterDamage , "MONSTER DIED" , true);
             villageButton.style.display = "inline";
@@ -72,7 +80,6 @@ async function fight(player, monster) {
         else {
             //mosnter attack 
             //wait 1500 ms then attack 
-            await new Promise(resolve => setTimeout(resolve, 1500));
             console.log("monster attacked");
             const damage = attack(monster, player);
             animateInfo(playerDamage , damage);
@@ -126,18 +133,18 @@ function updateData(){
 
 function animateInfo(uiElement , messege , keep){
     uiElement.innerText = messege;
-    uiElement.classList.add("animate")
-
-    debugger
+    
     if(keep === undefined){
-        setInterval(()=>{
+        uiElement.classList.add("animate")
+        setTimeout(()=>{
             uiElement.classList.remove("animate");
             uiElement.innerText = "";
         } , 2000);
     }
     else{
-        setInterval(()=>{
+        setTimeout(()=>{
             uiElement.classList.remove("animate");
+            uiElement.innerText = messege;
         } , 2000);
     }
 }
