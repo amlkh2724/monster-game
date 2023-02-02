@@ -13,6 +13,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #64C2B5;
+
 
 
 }
@@ -52,15 +54,16 @@
 }
 .monsters1,
 .monsters2,
-.monsters3,
-.monsters4,
-.monsters5 {
+.monsters3 {
   width: 40vmin;
   height: 40vmin;
   background-color: #5377AA;
   text-align: center;
   color: #64C2B5;
 
+}
+.replace{
+  background-color: red;
 }
 .choose-monster-button{
   
@@ -161,4 +164,10 @@
     top: 0;
     border-radius: 10px;
     
+  }
+  .backToMap{
+    height: 2rem;
+    width: 3rem;
+    margin-right: 65rem;
+    margin-top: 2rem;
   }

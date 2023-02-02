@@ -11,6 +11,8 @@ village3.innerHTML = data.locations[2].name
 village4.innerHTML = data.locations[3].name
 village5.innerHTML = data.locations[4].name
 
+
+
 village1.addEventListener('click', (e) => {
   localStorage.setItem("village-picked", 0)
   location.href = './village.html';

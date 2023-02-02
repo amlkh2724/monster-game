@@ -7,6 +7,12 @@ const data = JSON.parse(localStorage.getItem("rpg-game-data"));
 const villagePicked = localStorage.getItem("village-picked");
 const village = data.locations[villagePicked];
 
+
+
+function backToMap(){
+    location.href = './map.html';
+  }
+  
 villageName.innerText += village.name;
 
 monster1.innerHTML = `<div>${village.monsters[0].name}</div><div>${village.monsters[0].gold}</div><button  class="choose-monster-button glow">Choose</button>`;
@@ -21,6 +27,17 @@ for (let i = 0; i < chooseMonsterButtons.length; i++) {
     });
 }
 
+for (let i = 0; i < chooseMonsterButtons.length; i++) {
+    if (village.monsters[i].health > 0) {
+        chooseMonsterButtons[i].addEventListener("click", function () {
+            handleMonsterClick(i);
+        });
+    } else {
+        chooseMonsterButtons[i].disabled = true;
+        const monster = document.querySelector(`.monsters${i + 1}`);
+        monster.classList.add("replace");
+    }
+}
 function handleMonsterClick(index) {
     console.log("Monster chosen:", village.monsters[index].name);
     localStorage.setItem("monsterName", index);
