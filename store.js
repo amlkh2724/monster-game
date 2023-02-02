@@ -39,9 +39,9 @@ const hp1 = 50;
 const hp2 = 30;
 const hp3 = 70;
 
-const gold1 = 2;
-const gold2 = 1;
-const gold3 = 5;
+const gold1 = 25;
+const gold2 = 50;
+const gold3 = 75;
 
 const btnPotion1 = document.querySelector('.btn-potion1');
 const btnPotion2 = document.querySelector('.btn-potion2');
