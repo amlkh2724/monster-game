@@ -2,8 +2,9 @@ const villageName = document.querySelector(".village-name");
 const monster1 = document.querySelector(".monsters1");
 const monster2 = document.querySelector(".monsters2");
 const monster3 = document.querySelector(".monsters3");
+// const wooHooSound = document.querySelector('#woo-hoo-sound')
 const data = JSON.parse(localStorage.getItem("rpg-game-data"));
-
+const wooHooSound = new Audio(`/sound/epic_battle_music_1-6275 (1).mp3`);
 const villagePicked = localStorage.getItem("village-picked");
 const village = data.locations[villagePicked];
 
@@ -23,6 +24,7 @@ const chooseMonsterButtons = document.querySelectorAll(".choose-monster-button")
 
 for (let i = 0; i < chooseMonsterButtons.length; i++) {
     chooseMonsterButtons[i].addEventListener("click", function () {
+        wooHooSound.play()
         handleMonsterClick(i);
     });
 }

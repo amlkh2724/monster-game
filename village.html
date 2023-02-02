@@ -6,12 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./village.css">
   <script src="./village.js" defer></script>
+  <script src="./store.js" defer></script>
+  <script src="./fight.js" defer></script>
+
   <title>Document</title>
 </head>
 <body>
+  <!-- <audio id="woo-hoo-sound" src="/sound/epic_battle_music_1-6275 (1).mp3"></audio> -->
   <div class="flex">
     <div class="village-name"></div>
-    <button class="backToMap" onclick="backToMap()"><<<</button>
+    <div class="flexbuttons">
+      <button class="backToMap" onclick="backToMap()"><<<</button>
+      <button class="goToStore" onclick="storePage()">>>></button>
+    </div>
     <div class="monsters">
       <div class="monsters1"></div>
       <div class="monsters2"></div>

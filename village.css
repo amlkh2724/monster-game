@@ -168,6 +168,20 @@
   .backToMap{
     height: 2rem;
     width: 3rem;
-    margin-right: 65rem;
-    margin-top: 2rem;
+    background: #5377AA;
+    border: none;
+
+  }
+  .goToStore{
+    height: 2rem;
+    width: 3rem;
+    background: #5377AA;
+    border: none;
+  } 
+  .flexbuttons{
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 2rem;
+    /* flex-direction: column; */
   }
