@@ -128,7 +128,6 @@ function animateInfo(uiElement , messege , keep){
     uiElement.innerText = messege;
     uiElement.classList.add("animate")
 
-    debugger
     if(keep === undefined){
         setInterval(()=>{
             uiElement.classList.remove("animate");
