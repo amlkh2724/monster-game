@@ -27,6 +27,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-const btnPotion1 = document.querySelector('.btn-posion1');
-const btnPotion2 = document.querySelector('.btn-posion2');
-const btnPotion3 = document.querySelector('.btn-posion3');
+const btnPotion1 = document.querySelector('.btn-potion1');
+const btnPotion2 = document.querySelector('.btn-potion2');
+const btnPotion3 = document.querySelector('.btn-potion3');
