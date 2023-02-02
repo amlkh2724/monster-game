@@ -40,11 +40,22 @@ const btnPotion3 = document.querySelector('.btn-potion3');
 
 const data = JSON.parse(localStorage.getItem('rpg-game-data'));
 
+const btnGold = document.querySelector('.btn-gold');
+const btnHp = document.querySelector('.btn-hp');
+
+const showData = () => {
+  const data = JSON.parse(localStorage.getItem('rpg-game-data'));
+  btnGold.innerText = `CURRENT USER GOLD : ${data.player.gold}`;
+  btnHp.innerText = `CURRENT USER HP : ${data.player.health}`;
+}
+showData();
+
 btnPotion1.addEventListener('click', (e) => {
   if (Number(data.player.gold) >= gold1) {
     data.player.gold = Number(data.player.gold) - gold1;
     data.player.health = Number(data.player.health) + hp1;
     localStorage.setItem('rpg-game-data', JSON.stringify(data));
+    showData();
   }else{
     alert('NOY ENOUGH GOLD');
   }
@@ -54,6 +65,7 @@ btnPotion2.addEventListener('click', (e) => {
     data.player.gold = Number(data.player.gold) - gold2;
     data.player.health = Number(data.player.health) + hp2;
     localStorage.setItem('rpg-game-data', JSON.stringify(data));
+    showData();
   }else{
     alert('NOY ENOUGH GOLD');
   }
@@ -63,7 +75,7 @@ btnPotion3.addEventListener('click', (e) => {
     data.player.gold = Number(data.player.gold) - gold3;
     data.player.health = Number(data.player.health) + hp3;
     localStorage.setItem('rpg-game-data', JSON.stringify(data));
-
+    showData();
   }else{
     alert('NOY ENOUGH GOLD');
   }

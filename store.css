@@ -224,8 +224,16 @@ button {
   background-color: transparent;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-gold,
+.btn-hp,
 .btn-back {
-  width: 20%;
-  align-self: flex-end;
+  width: 30%;
   margin-top: 2rem;
 }
