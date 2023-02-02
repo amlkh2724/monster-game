@@ -1,8 +1,15 @@
 let slideIndex = 1;
 showSlides(slideIndex);
-function storePage(){
-  location.href=`./store.html`
-}
+
+
+
+
+
+// function storePage(){
+//   location.href=`./store.html`
+// }
+
+
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);

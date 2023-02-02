@@ -8,7 +8,9 @@ const wooHooSound = new Audio(`/sound/epic_battle_music_1-6275 (1).mp3`);
 const villagePicked = localStorage.getItem("village-picked");
 const village = data.locations[villagePicked];
 
-
+function storePage(){
+  location.href=`./store.html`
+}
 
 function backToMap(){
     location.href = './map.html';
