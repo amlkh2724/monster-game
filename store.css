@@ -1,3 +1,4 @@
+
 * {
   padding: 0;
   margin: 0;
@@ -221,4 +222,10 @@ button {
   border: 2px solid #64C2B5;
   color: white;
   background-color: transparent;
+}
+
+.btn-back {
+  width: 20%;
+  align-self: flex-end;
+  margin-top: 2rem;
 }
