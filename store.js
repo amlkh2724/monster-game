@@ -28,5 +28,31 @@ function showSlides(n) {
 }
 
 const btnPotion1 = document.querySelector('.btn-posion1');
+const potion1Gold = 2;
 const btnPotion2 = document.querySelector('.btn-posion2');
+const potion2Gold = 1;
 const btnPotion3 = document.querySelector('.btn-posion3');
+const potion3Gold = 5;
+
+const data = JSON.parse(localStorage.getItem('rpg-game-data'));
+
+const buy = gold => {
+  if (Number(data.player.gold) >= gold) {
+    data.player.gold = Number(data.player.gold) - gold;
+    localStorage.setItem('rpg-game-data', JSON.stringify(data));
+  }else{
+    alert('NOT ENOUGH MONEY');
+  }
+}
+
+btnPotion1.addEventListener('click', (e) => {
+  buy(potion1Gold);
+});
+
+btnPotion2.addEventListener('click', (e) => {
+  buy(potion2Gold);
+});
+
+btnPotion3.addEventListener('click', (e) => {
+  buy(potion3Gold);
+});
